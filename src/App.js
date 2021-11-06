@@ -9,12 +9,16 @@ function App() {
         {name: 'Madrid', description: 'The capital of Spain'}
     ])
 
-    const handlerChangeCity = (n, desc) => {
-        setCities(cities.map((name, index) => {
-            console.log(name)
-        //     if (index === n) {
-        //         return {...name, desc}
-        //     }
+    const handlerChangeCity = (index, description) => {
+        setCities(cities.map((city, i) => {
+            if (index === i) {
+                return {
+                    name: city.name,
+                    description: description
+                }
+            } else {
+                return city
+            }
         }))
     }
 
@@ -28,3 +32,15 @@ function App() {
 }
 
 export default App;
+
+
+
+// setCities(
+//     cities.map((city, i) => {
+//         if (i === index) {
+//             return { name: city.name, description }
+//         } else {
+//             return city
+//         }
+//     })
+// )
